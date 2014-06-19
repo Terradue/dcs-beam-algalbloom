@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <chmod dir="/application" includes="**/bin/*, **/run*" perm="755"/>
+</target>
+</project>

@@ -3,8 +3,8 @@
 # source the ciop functions (e.g. ciop-log)
 source ${ciop_job_include}
 
-export BEAM_HOME=/usr/lib/esa/beam-4.11
-export PATH=$BEAM_HOME/bin:$PATH
+#export BEAM_HOME=/usr/lib/esa/beam-4.11
+#export PATH=$BEAM_HOME/bin:$PATH
 
 # define the exit codes
 SUCCESS=0
@@ -57,7 +57,7 @@ ymin=`echo $bbox | cut -d "," -f 2`
 xmax=`echo $bbox | cut -d "," -f 3`
 ymax=`echo $bbox | cut -d "," -f 4`
 
-l3db=$TMPDIR/l3_database.bindb
+#l3db=$TMPDIR/l3_database.bindb
 file=$TMPDIR/binning_request.xml
 
 mkdir -p $TMPDIR/input
@@ -69,74 +69,57 @@ do
 	cd $TMPDIR/input; tar xfz `basename $prod`; cd - &> /dev/null 
 done
 
-# first part of request file
 cat > $file << EOF
-<?xml version="1.0" encoding="ISO-8859-1"?>
-  <RequestList>
-    <Request type="BINNING">
-      <Parameter name="process_type" value="init" />
-      <Parameter name="database" value="$l3db" />
-      <Parameter name="lat_min" value="$ymin" />
-      <Parameter name="lat_max" value="$ymax" />
-      <Parameter name="lon_min" value="$xmin" />
-      <Parameter name="lon_max" value="$xmax" />
-      <Parameter name="log_prefix" value="l3" />
-      <Parameter name="log_to_output" value="false" />
-      <Parameter name="resampling_type" value="binning" />
-      <Parameter name="grid_cell_size" value="$cellsize" />
-      <Parameter name="band_name.0" value="$bandname" />
-      <Parameter name="bitmask.0" value="$bitmask" />
-      <Parameter name="binning_algorithm.0" value="$algorithm" />
-      <Parameter name="weight_coefficient.0" value="1" />
-    </Request>
-    <Request type="BINNING">
-      <Parameter name="process_type" value="update" />
-      <Parameter name="database" value="$l3db" />
-      <Parameter name="log_prefix" value="l3" />
-      <Parameter name="log_to_output" value="false" />
+  <graph id="someGraphId">
+    <version>1.0</version>
+    <node id="someNodeId">
+      <operator>Binning</operator>
+<parameters>
+    <sourceProductPaths>`find $TMPDIR/input -name "*.dim" | tr "\n" ","`</sourceProductPaths>
+    <region class="com.vividsolutions.jts.geom.Polygon">POLYGON ((-180 -90, 180 -90, 180 90, -180 90, -180 -90))</region>
+    <timeFilterMethod>NONE</timeFilterMethod>
+    <numRows>2160</numRows>
+    <superSampling>1</superSampling>
+    <maskExpr>$bitmask</maskExpr>
+    <variables/>
+    <aggregators>
+        <aggregator>
+            <type>$algorithm</type>
+            <varName>$bandname</varName>
+            <targetName></targetName>
+        </aggregator>
+    </aggregators>
+    <outputFile>$TMPDIR/output/$outputname.dim</outputFile>
+</parameters>
+ </node>
+</graph>
 EOF
 
-for myfile in `find $TMPDIR/input -type f -name "*.dim"`
-do
-        echo "      <InputProduct URL=\"file://$myfile\" /> " >> $file
-done
-cat >> $file << EOF
-    </Request>
-    <Request type="BINNING">
-      <Parameter name="process_type" value="finalize" />
-      <Parameter name="database" value="$l3db" />
-      <Parameter name="delete_db" value="true" />
-      <Parameter name="log_prefix" value="l3" />
-      <Parameter name="log_to_output" value="false" />
-      <Parameter name="tailor" value="$tailor" />
-      <OutputProduct URL="file:$TMPDIR/output/$outputname.dim" format="BEAM-DIMAP" />
-    </Request>
-</RequestList>
-EOF
+cp $file /tmp
+	$_CIOP_APPLICATION_PATH/shared/bin/gpt.sh $file 
 
-	binning.sh $file &> /dev/null
 	[ "$?" == "0" ] || exit $ERR_BINNING
 
 	ciop-log "INFO" "Publishing binned DIMAP product"
 	ciop-publish -m $TMPDIR/output/$outputname.dim
-	ciop-publish -rm $TMPDIR/output/$outputname.data
+	ciop-publish -r -m $TMPDIR/output/$outputname.data
 
 cat > $TMPDIR/palette.cpd << EOF
 `ciop-getparam "palette"`
 EOF
 
 	ciop-log "INFO" "Generating image files"
-	pconvert.sh -f png -b $band $TMPDIR/output/$outputname.dim -c $TMPDIR/palette.cpd -o $TMPDIR/output &> /dev/null
+	$_CIOP_APPLICATION_PATH/shared/bin/pconvert.sh -f png -b $band $TMPDIR/output/$outputname.dim -c $TMPDIR/palette.cpd -o $TMPDIR/output &> /dev/null
 	[ "$?" == "0" ] || exit $ERR_PCONVERT
 
 	ciop-publish -m $TMPDIR/output/$outputname.png
 	
-	pconvert.sh -f tif -b $band $TMPDIR/output/$outputname.dim -c  $TMPDIR/palette.cpd -o $TMPDIR/output &> /dev/null
+	$_CIOP_APPLICATION_PATH/shared/bin/pconvert.sh -f tif -b $band $TMPDIR/output/$outputname.dim -c  $TMPDIR/palette.cpd -o $TMPDIR/output &> /dev/null
 	[ "$?" == "0" ] || exit $ERR_PCONVERT
 	mv $TMPDIR/output/$outputname.tif $TMPDIR/output/$outputname.rgb.tif
 	ciop-publish -m $TMPDIR/output/$outputname.rgb.tif
 	
-	pconvert.sh -f tif -b $band $TMPDIR/output/$outputname.dim -o $TMPDIR/output &> /dev/null
+	$_CIOP_APPLICATION_PATH/shared/bin/pconvert.sh -f tif -b $band $TMPDIR/output/$outputname.dim -o $TMPDIR/output &> /dev/null
 	[ "$?" == "0" ] || exit $ERR_PCONVERT
 	ciop-publish -m $TMPDIR/output/$outputname.tif
 

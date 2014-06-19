@@ -3,8 +3,8 @@
 # source the ciop functions (e.g. ciop-log)
 source ${ciop_job_include}
 
-export BEAM_HOME=/usr/lib/esa/beam-4.11
-export PATH=$BEAM_HOME/bin:$PATH
+#export BEAM_HOME=/usr/lib/esa/beam-4.11
+#export PATH=$BEAM_HOME/bin:$PATH
 
 # define the exit codes
 SUCCESS=0
@@ -94,7 +94,8 @@ cat << EOF > $BEAM_REQUEST
   </node>
 </graph>
 EOF
-   gpt.sh $BEAM_REQUEST &> /dev/null
+   
+  $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh $BEAM_REQUEST 
    res=$?
    [ $res != 0 ] && exit $ERR_BEAM
 
