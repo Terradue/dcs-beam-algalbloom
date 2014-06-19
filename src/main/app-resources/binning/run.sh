@@ -15,8 +15,7 @@ function cleanExit ()
    local msg=""
    case "$retval" in
      $SUCCESS)      msg="Processing successfully concluded";;
-     $ERR_NOPARAMS) msg="Output format not defined";;
-     $ERR_GDAL)    msg="Graph processing of job ${JOBNAME} failed (exit code $res)";;
+     $ERR_BINNING)  msg="gpt returned an error";;
      $ERR_PCONVERT) msg="pconvert returned an error";;
      *)             msg="Unknown error";;
    esac
@@ -27,7 +26,7 @@ trap cleanExit EXIT
 
 function createImage() {
 		
-  band=3 # max
+  band=3 # max. Change this if the algorithm is not MIN_MAX
 		
   $_CIOP_APPLICATION_PATH/shared/bin/pconvert.sh -f $1 \
 					-b $band $TMPDIR/output/$outputname.dim  \
