@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application id="beam_arithm">
-	<jobTemplates>
-		<!-- BEAM BandMaths operator job template  -->
-		<jobTemplate id="expression">
-			<streamingExecutable>/application/expression/run.sh</streamingExecutable>
-			<defaultParameters>						
-				<parameter id="expression">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-				<parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
-				<parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
-			</defaultParameters>
-		</jobTemplate>
-		<!-- BEAM Level 3 processor job template  -->
-		<jobTemplate id="binning">
-			<streamingExecutable>/application/binning/run.sh</streamingExecutable>
-			<defaultParameters>						
-				<parameter id="cellsize">9.28</parameter>
-				<parameter id="bandname">out</parameter>
-				<parameter id="bitmask">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-      			<parameter id="bbox" title="Bounding Box" abstract="The bounding box parameter" scope="test" target="geo:box">-180,-90,180,90</parameter>
-				<parameter id="algorithm">MIN_MAX</parameter>
-				<parameter id="outputname">binned</parameter>
-				<parameter id="resampling">binning</parameter>
-				<parameter id="palette">#MCI_Palette
+  <jobTemplates>
+  
+  <!-- BEAM BandMaths operator job template  -->
+  <jobTemplate id="expression">
+    <streamingExecutable>/application/expression/run.sh</streamingExecutable>
+    <defaultParameters>						
+      <parameter id="expression">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
+      <parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
+      <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
+    </defaultParameters>
+  </jobTemplate>
+		
+  <!-- BEAM Level 3 processor job template  -->
+  <jobTemplate id="binning">
+    <streamingExecutable>/application/binning/run.sh</streamingExecutable>
+    <defaultParameters>						
+      <parameter id="bandname">out</parameter>
+      <parameter id="bitmask">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
+      <parameter id="bbox" title="Bounding Box" abstract="The bounding box parameter" scope="test" target="geo:box">-180,-90,180,90</parameter>
+      <parameter id="algorithm">MIN_MAX</parameter>
+      <parameter id="outputname">binned</parameter>
+      <parameter id="palette">#MCI_Palette
 color0=0,0,0
 color1=0,0,154
 color2=54,99,250
@@ -41,16 +41,14 @@ sample5=100.4522313573219
 sample6=100.90292139086574
 sample7=101.35361142440956
 sample8=101.80430145795337</parameter>
-				<parameter id="band">3</parameter>
-				<parameter id="tailor">true</parameter>
-			</defaultParameters>
-			<defaultJobconf>
-		        	<property id="ciop.job.max.tasks">1</property>
-		        </defaultJobconf>
-		</jobTemplate>
-	</jobTemplates>
-  	<workflow id="beam_arithm" title="beam arithm" abstract="this is a tutorial on the use of beam on a Sandbox">						
-		<workflowVersion>1.0</workflowVersion>
+    </defaultParameters>
+    <defaultJobconf>
+      <property id="ciop.job.max.tasks">1</property>
+    </defaultJobconf>
+	</jobTemplate>
+</jobTemplates>
+<workflow id="beam_arithm" title="BEAM Algal bloom detection" abstract="This tutorial uses BEAM to detect algal blooms">						
+  <workflowVersion>1.0</workflowVersion>
 		<node id="node_expression">				
 			<job id="expression"></job>			
 			<sources>
