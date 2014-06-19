@@ -3,15 +3,11 @@
 # source the ciop functions (e.g. ciop-log)
 source ${ciop_job_include}
 
-#export BEAM_HOME=/usr/lib/esa/beam-4.11
-#export PATH=$BEAM_HOME/bin:$PATH
-
 # define the exit codes
 SUCCESS=0
 ERR_NOINPUT=1
 ERR_BEAM=2
 ERR_NOPARAMS=5
-
 
 # add a trap to exit gracefully
 function cleanExit ()
@@ -39,24 +35,23 @@ expression="`ciop-getparam expression`"
 # run a check on the expression value, it can't be empty
 [ -z "$expression" ] && exit $ERR_NOPARAMS
 
-
 # loop and process all MERIS products
 while read inputfile 
 do
 	# report activity in log
-	ciop-log "INFO" "Retrieving $inputfile from storage"
-
-	# retrieve the remote geotiff product to the local temporary folder
-	retrieved=`ciop-copy -o $TMPDIR $inputfile`
-	
-	# check if the file was retrieved
-	[ "$?" == "0" -a -e "$retrieved" ] || exit $ERR_NOINPUT
-	
-	# report activity
-	ciop-log "INFO" "Retrieved `basename $retrieved`, moving on to expression"
-	outputname=`basename $retrieved`
-
-	BEAM_REQUEST=$TMPDIR/beam_request.xml
+  ciop-log "INFO" "Retrieving $inputfile from storage"
+  
+  # retrieve the remote geotiff product to the local temporary folder
+  retrieved=`ciop-copy -o $TMPDIR $inputfile`
+  
+  # check if the file was retrieved
+  [ "$?" == "0" -a -e "$retrieved" ] || exit $ERR_NOINPUT
+  
+  # report activity
+  ciop-log "INFO" "Retrieved `basename $retrieved`, moving on to expression"
+  outputname=`basename $retrieved`
+  
+  BEAM_REQUEST=$TMPDIR/beam_request.xml
 cat << EOF > $BEAM_REQUEST
 <?xml version="1.0" encoding="UTF-8"?>
 <graph>
@@ -96,23 +91,18 @@ cat << EOF > $BEAM_REQUEST
 EOF
    
   $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh $BEAM_REQUEST 
-   res=$?
-   [ $res != 0 ] && exit $ERR_BEAM
-
-		cd $OUTPUTDIR
-	
-	outputname=`echo $(basename $retrieved)`.dim
-	outputfolder=`echo $(basename $retrieved)`.data
-
-	tar cfz $outputname.tgz $outputname $outputfolder &> /dev/null
-	cd - &> /dev/null
-	
-	ciop-log "INFO" "Publishing $outputname.dim and $outputname.data"
-	ciop-publish $OUTPUTDIR/$outputname.tgz
-	cd - &> /dev/null	
-	
-	# cleanup
-	rm -fr $retrieved $OUTPUTDIR/$outputname.d* $OUTPUTDIR/$outputname.tgz 
+  res=$?
+  [ $res != 0 ] && exit $ERR_BEAM
+  
+  outputname=`echo $(basename $retrieved)`
+  
+  tar -C $OUTPUTDIR czf $outputname.tgz $outputname.dim $outputname.data &> /dev/null
+  
+  ciop-log "INFO" "Publishing $outputname.dim and $outputname.data"
+  ciop-publish $OUTPUTDIR/$outputname.tgz
+  
+  # cleanup
+  rm -fr $retrieved $OUTPUTDIR/$outputname.d* $OUTPUTDIR/$outputname.tgz 
 
 done
 
