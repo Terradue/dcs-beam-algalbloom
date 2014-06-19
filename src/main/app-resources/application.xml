@@ -45,7 +45,7 @@ sample8=101.80430145795337</parameter>
       <defaultJobconf>
         <property id="ciop.job.max.tasks">1</property>
       </defaultJobconf>
-  	</jobTemplate>
+    </jobTemplate>
   </jobTemplates>
   <workflow id="beam_arithm" title="BEAM Algal bloom detection" abstract="This tutorial uses BEAM to detect algal blooms">						
     <workflowVersion>1.0</workflowVersion>
