@@ -6,8 +6,8 @@
 			<streamingExecutable>/application/expression/run.sh</streamingExecutable>
 			<defaultParameters>						
 				<parameter id="expression">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-				<parameter id="startdate" title="Start date" abstract="Start date of the TOI" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
-				<parameter id="enddate" title="Start date" abstract="Start date of the TOI" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
+				<parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
+				<parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
 			</defaultParameters>
 		</jobTemplate>
 		<!-- BEAM Level 3 processor job template  -->
