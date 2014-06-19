@@ -6,8 +6,8 @@
 			<streamingExecutable>/application/expression/run.sh</streamingExecutable>
 			<defaultParameters>						
 				<parameter id="expression">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-				<parameter id="startdate" type="opensearch" target="time:start">2012-04-01</parameter>
-				<parameter id="enddate" type="opensearch" target="time:end">2012-04-03</parameter>
+				<parameter id="startdate" title="Start date" abstract="Start date of the TOI" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
+				<parameter id="enddate" title="Start date" abstract="Start date of the TOI" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
 			</defaultParameters>
 		</jobTemplate>
 		<!-- BEAM Level 3 processor job template  -->
@@ -17,7 +17,7 @@
 				<parameter id="cellsize">9.28</parameter>
 				<parameter id="bandname">out</parameter>
 				<parameter id="bitmask">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-      			<parameter id="bbox" title="Bounding Box" abstract="The bounding box parameter" scope="runtime" target="geo:box">-180,-90,180,90</parameter>
+      			<parameter id="bbox" title="Bounding Box" abstract="The bounding box parameter" scope="test" target="geo:box">-180,-90,180,90</parameter>
 				<parameter id="algorithm">MIN_MAX</parameter>
 				<parameter id="outputname">binned</parameter>
 				<parameter id="resampling">binning</parameter>
@@ -41,7 +41,7 @@ sample5=100.4522313573219
 sample6=100.90292139086574
 sample7=101.35361142440956
 sample8=101.80430145795337</parameter>
-				<parameter id="band">1</parameter>
+				<parameter id="band">3</parameter>
 				<parameter id="tailor">true</parameter>
 			</defaultParameters>
 			<defaultJobconf>
