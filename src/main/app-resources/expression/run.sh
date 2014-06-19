@@ -38,7 +38,7 @@ expression="`ciop-getparam expression`"
 # loop and process all MERIS products
 while read inputfile 
 do
-	# report activity in log
+  # report activity in log
   ciop-log "INFO" "Retrieving $inputfile from storage"
   
   # retrieve the remote geotiff product to the local temporary folder
@@ -52,7 +52,8 @@ do
   outputname=`basename $retrieved`
   
   BEAM_REQUEST=$TMPDIR/beam_request.xml
-cat << EOF > $BEAM_REQUEST
+
+  cat << EOF > $BEAM_REQUEST
 <?xml version="1.0" encoding="UTF-8"?>
 <graph>
   <version>1.0</version>
@@ -96,13 +97,13 @@ EOF
   
   outputname=`echo $(basename $retrieved)`
   
-  tar -C $OUTPUTDIR czf $outputname.tgz $outputname.dim $outputname.data &> /dev/null
+  tar -C $OUTPUTDIR -czf $TMPDIR/$outputname.tgz $outputname.dim $outputname.data
   
-  ciop-log "INFO" "Publishing $outputname.dim and $outputname.data"
-  ciop-publish $OUTPUTDIR/$outputname.tgz
+  ciop-log "INFO" "Publishing $outputname.tgz"
+  ciop-publish $TMPDIR/$outputname.tgz
   
   # cleanup
-  rm -fr $retrieved $OUTPUTDIR/$outputname.d* $OUTPUTDIR/$outputname.tgz 
+  rm -fr $retrieved $OUTPUTDIR/$outputname.d* $TMPDIR/$outputname.tgz 
 
 done
 
