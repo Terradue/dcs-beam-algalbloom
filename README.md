@@ -65,7 +65,7 @@ Run this command in a shell:
 ciop-simwf
 ```
 
-Or invoke the Web Processing Service via the Sandbox dashboard providing a start/stop date in the format YYYY/MM/DD.
+Or invoke the Web Processing Service via the Sandbox dashboard providing a start/stop date in the format YYYY/MM/DD (e.g. 2012-04-01 and 2012-04-03).
 
 ### Community and Documentation
 
