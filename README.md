@@ -1,10 +1,12 @@
 ## Developer Cloud Service - MERIS Algal bloom detection using BEAM
 
-TODO
+Ocean colour radiometry is a technology, and a discipline of research, concerning the study of the interaction between the visible electromagnetic radiation coming from the sun and aquatic environments. In general, the term is used in the context of remote-sensing observations, often made from Earth-orbiting satellites. Using sensitive radiometers, such as those on-board satellite platforms, one can measure carefully the wide array of colors emerging out of the ocean. These measurements can be used to infer important information such as phytoplankton biomass or concentrations of other living and non-living material that modify the characteristics of the incoming radiation. Monitoring the spatial and temporal variability of algal blooms from satellite, over large marine regions up to the scale of the global ocean, has been instrumental in characterizing variability of marine ecosystems and is a key tool for research into how marine ecosystems respond to climate change and anthropogenic perturbations.
 
-The Landsat NDVI Python tutorial uses the Developer Cloud Sandbox service to implement a Python package using GDAL to   calculate the [NDVI](http://en.wikipedia.org/wiki/Normalized_Difference_Vegetation_Index) in [Landsat TM 5 and 7](http://en.wikipedia.org/wiki/Landsat_program) data.
+Source: [Wikipedia Ocean Color](http://en.wikipedia.org/wiki/Ocean_color)
 
-This tutorial builds upon the [Python Scripting for Remote Sensing course](http://www.landmap.ac.uk/index.php/Learning-Materials/Python-Scripting/9.1-Introduction) by [Landmap](http://www.landmap.ac.uk/) and extends it to exploit a Cloud computing platform for its development, test and exploitation.
+The MERIS Algal bloom detection using BEAM tutorial uses the Developer Cloud Sandbox service to implement a simple datapipeline workflow to apply a band arithmetic expression to MERIS Level 1 data to visualy detect algal blooms and bin these products.
+
+This tutorial builds upon the on the work done in the context of the ESA Cat-1 project “Production of global MERIS MCI composite images for detection of plankton blooms and other events” submitted by Dr. Jim Gower and extends it to exploit a Cloud computing platform for its development, test and exploitation.
 
 ### Getting Started 
 
