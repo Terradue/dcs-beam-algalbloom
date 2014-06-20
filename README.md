@@ -22,7 +22,7 @@ Log on the developer sandbox and run these commands in a shell:
 * Install **Java 7**
 
 ```bash
-sudo yum install java-1.7.0-openjdk
+sudo yum install -y java-1.7.0-openjdk
 ```
 
 * Select Java 7
