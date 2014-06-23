@@ -78,8 +78,8 @@ To learn more and find information go to
 
 ### Authors (alphabetically)
 
-* Emmannuel Mathot 
-* Fabrice Brito
+* Brito Fabrice
+* Mathot Emmannuel
 
 ### License
 
