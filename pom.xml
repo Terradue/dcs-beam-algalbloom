@@ -10,9 +10,9 @@
 	<version>0.1</version>
 
 	<scm>
-		<connection>scm:git:git@github.com:Terradue/BEAM-Java-tutorial.git</connection>
-		<developerConnection>scm:git:git@github.com:Terradue/BEAM-Java-tutorial.git</developerConnection>
-		<url>https://github.com/Terradue/BEAM-Java-tutorial</url>
+		<connection>scm:git:git@github.com:Terradue/dcs-beam-algalbloom.git</connection>
+		<developerConnection>scm:git:git@github.com:Terradue/dcs-beam-algalbloom.git</developerConnection>
+		<url>https://github.com/Terradue/dcs-beam-algalbloom</url>
 		<tag>HEAD</tag>
 	</scm>
 
