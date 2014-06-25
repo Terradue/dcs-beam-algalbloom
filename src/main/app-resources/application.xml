@@ -11,6 +11,16 @@
         <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
       </defaultParameters>
     </jobTemplate>
+	
+    <jobTemplate id="arrange">
+      <streamingExecutable>/application/arrange/run.R</streamingExecutable>
+      <defaultParameters>
+        <parameter id="period">day</parameter>
+      </defaultParameters>
+      <defaultJobconf>
+        <property id="ciop.job.max.tasks">1</property>
+      </defaultJobconf>
+    </jobTemplate> 
 		
     <!-- BEAM Level 3 processor job template  -->
     <jobTemplate id="binning">
@@ -56,10 +66,18 @@ sample8=101.80430145795337</parameter>
       </sources>
       <parameters/>					
     </node>
+    <node id="node_arrange">	
+      <job id="arrange"></job>	
+      <sources>
+        <source refid="wf:node">node_expression</source>	
+      </sources>
+      <parameters>
+      </parameters>
+    </node>
     <node id="node_binning">				
       <job id="binning"></job>			
       <sources>
-        <source refid="wf:node">node_expression</source>				
+        <source refid="wf:node">node_arrange</source>				
       </sources>
       <parameters>
         <parameter id="bitmask"/>		
