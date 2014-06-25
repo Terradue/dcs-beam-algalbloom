@@ -10,6 +10,9 @@
         <parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
         <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
       </defaultParameters>
+      <defaultJobconf>
+        <property id="mapred.task.timeout">9900000000000</property>
+      </defaultJobconf>
     </jobTemplate>
 	
     <jobTemplate id="arrange">
@@ -53,6 +56,7 @@ sample7=101.35361142440956
 sample8=101.80430145795337</parameter>
       </defaultParameters>
       <defaultJobconf>
+        <property id="mapred.task.timeout">9900000000000</property>
       </defaultJobconf>
     </jobTemplate>
   </jobTemplates>
