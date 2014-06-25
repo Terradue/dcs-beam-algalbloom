@@ -53,7 +53,6 @@ sample7=101.35361142440956
 sample8=101.80430145795337</parameter>
       </defaultParameters>
       <defaultJobconf>
-        <property id="ciop.job.max.tasks">1</property>
       </defaultJobconf>
     </jobTemplate>
   </jobTemplates>
