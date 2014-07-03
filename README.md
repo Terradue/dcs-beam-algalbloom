@@ -48,6 +48,20 @@ Enter to keep the current selection[+], or type selection number:
 
 Select java 1.7 out of the menu options by typing the correct number (here it's *3*).
 
+* Install R required packages
+
+Install R and associated packages with the platform rciop RPM:
+
+```bash
+sudo yum install rciop
+```
+
+Install ff package in an R console:
+
+```coffee
+install.packages("ff")
+```
+
 * Install this application
 
 ```bash
