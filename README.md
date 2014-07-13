@@ -6,12 +6,7 @@ Hereafter, we will guide you to implement a "MERIS Algal bloom detection using B
 
 ### Getting Started 
 
-To run this application, you will need a Developer Cloud Sandbox that can be requested from Terradue's [Portal](http://www.terradue.com/partners), provided user registration approval. 
-
-A Developer Cloud Sandbox provides Earth Science data access services, and assistance tools for a user to implement, test and validate his application.
-It runs in two different lifecycle modes: Sandbox mode and Cluster mode. 
-Used in Sandbox mode (single virtual machine), it supports cluster simulation and user assistance functions in building the distributed application.
-Used in Cluster mode (collections of virtual machines), it supports the deployment and execution of the application with the power of distributed computing processing over large datasets (leveraging the Hadoop Streaming MapReduce technology). 
+To run this application, you will need a Developer Cloud Sandbox that can be requested from [Terradue's Portal](http://www.terradue.com/partners), provided user registration approval. 
 
 ### Installation 
 
