@@ -1,12 +1,8 @@
 ## Developer Cloud Service - MERIS Algal bloom detection using BEAM
 
-Ocean colour radiometry is a technology, and a discipline of research, concerning the study of the interaction between the visible electromagnetic radiation coming from the sun and aquatic environments. In general, the term is used in the context of remote-sensing observations, often made from Earth-orbiting satellites. Using sensitive radiometers, such as those on-board satellite platforms, one can measure carefully the wide array of colors emerging out of the ocean. These measurements can be used to infer important information such as phytoplankton biomass or concentrations of other living and non-living material that modify the characteristics of the incoming radiation. Monitoring the spatial and temporal variability of algal blooms from satellite, over large marine regions up to the scale of the global ocean, has been instrumental in characterizing variability of marine ecosystems and is a key tool for research into how marine ecosystems respond to climate change and anthropogenic perturbations.
+This tutorial builds upon the on the work done in the context of the ESA Cat-1 project “Production of global MERIS MCI composite images for detection of plankton blooms and other events” submitted by Dr. Jim Gower. More context information is available from the [tutorial wiki page](https://github.com/Terradue/dcs-beam-algalbloom/wiki).
 
-Source: [Wikipedia Ocean Color](http://en.wikipedia.org/wiki/Ocean_color)
-
-The MERIS Algal bloom detection using BEAM tutorial uses the Developer Cloud Sandbox service to implement a simple datapipeline workflow to apply a band arithmetic expression to MERIS Level 1 data to visualy detect algal blooms and bin these products.
-
-This tutorial builds upon the on the work done in the context of the ESA Cat-1 project “Production of global MERIS MCI composite images for detection of plankton blooms and other events” submitted by Dr. Jim Gower and extends it to exploit a Cloud computing platform for its development, test and exploitation.
+Hereafter, we will guide you to implement a "MERIS Algal bloom detection using BEAM" application on Terradue's Cloud Platform, a set of Cloud services to develop, test and exploit scalable, distributed earth data processors. 
 
 ### Getting Started 
 
