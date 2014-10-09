@@ -14,7 +14,7 @@ Two parameters target an OpenSearch query:
 
 The catalogue OpenSearch description URL is defined in the worflow section of the application descriptor file:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 68
@@ -59,7 +59,7 @@ Those URLs are piped to the expression streamining executable that:
 
 The job template includes the path to the streaming executable.
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 7
@@ -80,21 +80,21 @@ The job template defines three parameters:
 
 which translates to:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 8-12
 
 The job template set the property mapred.task.timeout, the wall time between messages in the log:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 13-15
 
 Here's the job template including the elements described above:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 5-16
