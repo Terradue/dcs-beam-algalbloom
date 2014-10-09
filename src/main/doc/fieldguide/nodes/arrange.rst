@@ -16,7 +16,7 @@ As the second job in this workflow, the expression processing step implements a 
 
 The job template includes the path to the streaming executable.
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 19
@@ -33,14 +33,14 @@ The job template defines a single parameter:
 
 which translates to the XML code in the node arrange job template: 
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 20-22
 
 The job template sets the *ciop.job.max.tasks* to one instance since the streaming executable has to process all inputs at once:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 23-25
@@ -50,7 +50,7 @@ The job template sets the *ciop.job.max.tasks* to one instance since the streami
 
 Here's the job template including all the elements described above:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 18-26 
