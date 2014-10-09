@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dct="http://purl.org/dc/terms/" xmlns:dclite4g="http://xmlns.com/2008/dclite4g#" xmlns:ical="http://www.w3.org/2002/12/cal/ical#" xmlns:ws="http://dclite4g.xmlns.com/ws.rdf#" xmlns:eop="http://earth.esa.int/eop" xmlns:opt="http://earth.esa.int/opt" xmlns:sar="http://earth.esa.int/sar" xmlns:atm="http://earth.esa.int/atm" xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>MER_RR__1P</ShortName>
+    <LongName>ENVISAT MERIS Level 1 Reduced Resolution (MER_RR__1P)</LongName>
+    <Description>. This Search Service performs spatial, temporal and other queries in the available products of MER_RR__1P. There are several URL templates that return the results in different formats (RDF, ATOM or HTML). This search service is in accordance with the OGC 10-032r3 specification.</Description>
+    <Tags>Digital Earth Communities, Catalogue</Tags>
+    <Contact>info@terradue.com</Contact>
+    <Image height="38" width="120" type="image/png">http://www.terradue.com/images/terradue.png</Image><Image height="16" width="16" type="image/vnd.microsoft.icon">http://www.terradue.com/images/terradue.ico</Image>
+    <Query role="example" geo:box="-25,30,45,70" />
+    <Developer>Terradue GeoSpatial Development Team</Developer>
+    <Attribution>Terradue Srl. Copyright 2008-13, All Rights Reserved</Attribution>
+    <SyndicationRight>open</SyndicationRight>
+    <AdultContent>false</AdultContent>
+    <Language>en-us</Language>
+    <OutputEncoding>UTF-8</OutputEncoding>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Url type="application/rdf+xml" indexOffset="0" pageOffset="0" template="http://catalogue.terradue.int/catalogue/search/MER_RR__1P/rdf/?count={count?}&amp;name={geo:name?}&amp;startPage={startPage?}&amp;startIndex={startIndex?}&amp;q={searchTerms?}&amp;start={time:start?}&amp;stop={time:end?}&amp;bbox={geo:box?}&amp;geometry={geo:geometry?}&amp;uid={geo:uid?}" />
+    <Url type="text/html" indexOffset="0" pageOffset="0" template="http://catalogue.terradue.int/catalogue/search/MER_RR__1P/html/?count={count?}&amp;name={geo:name?}&amp;startPage={startPage?}&amp;startIndex={startIndex?}&amp;q={searchTerms?}&amp;start={time:start?}&amp;stop={time:end?}&amp;bbox={geo:box?}&amp;geometry={geo:geometry?}&amp;uid={geo:uid?}" />
+    <Url type="application/atom+xml" indexOffset="0" pageOffset="0" template="http://catalogue.terradue.int/catalogue/search/MER_RR__1P/atom/?count={count?}&amp;name={geo:name?}&amp;startPage={startPage?}&amp;startIndex={startIndex?}&amp;q={searchTerms?}&amp;start={time:start?}&amp;stop={time:end?}&amp;bbox={geo:box?}&amp;geometry={geo:geometry?}&amp;uid={geo:uid?}" />
+</OpenSearchDescription>
