@@ -36,13 +36,13 @@ http://catalogue.terradue.int/catalogue/search/MER_RR__1P/rdf?start=2012-04-04&s
 
 The same information is passed to the OpenSearch client available in the sandbox to generate the stdin for the expression node:
 
-.. code-block:: bash
+.. code-block:: console
 
   opensearch-client -f Rdf -p time:start=2012-04-04 -p time:end=2012-04-06 http://catalogue.terradue.int/catalogue/search/MER_RR__1P/description 
   
 which returns:
 
-.. code-block:: bash
+.. code-block:: console
 
   http://catalogue.terradue.int/catalogue/search/MER_RR__1P/rdf?uid=MER_RR__1PRLRA20120405_192228_000026213113_00229_52829_0120.N1
   http://catalogue.terradue.int/catalogue/search/MER_RR__1P/rdf?uid=MER_RR__1PRLRA20120405_174214_000026213113_00228_52828_0110.N1
