@@ -9,7 +9,7 @@ The binning job template defines the streaming executable, the wall time and the
 
 The job template includes the path to the streaming executable.
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 30
@@ -71,21 +71,21 @@ The job template defines three parameters:
 
 which translates to:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 31-57
 
 The job template set the property mapred.task.timeout, the wall time between messages in the log:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 58-60
 
 Here's the job template including the elements described above:
 
-.. literalinclude:: ../src/src/main/app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 28-61
