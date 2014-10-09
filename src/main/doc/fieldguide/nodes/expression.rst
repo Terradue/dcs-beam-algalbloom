@@ -7,7 +7,7 @@ It defines the parameters to query the catalogue which, in this case is the star
 
 Two parameters target an OpenSearch query: 
 
-.. literalinclude:: ../../../../app-resources/application.xml
+.. literalinclude:: ../../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 8-12
