@@ -17,7 +17,7 @@ The node_expression node
 
 The first node of the DAG with the unique identifer set to *node_expression* instantiates the :doc:`expression <nodes/expression>` job template.
 
-.. literalinclude:: src/main/app-resources/application.xml
+.. literalinclude:: ../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 65-71
@@ -41,14 +41,14 @@ The node_arrange node
 
 The node_arrange instantiates the arrange job template and uses the default value for the period. The node inputs are not a reference to a catalogue as for the expression node, but the references to *node_expression* results:
 
-.. literalinclude:: src/main/app-resources/application.xml
+.. literalinclude:: ../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 74-76
   
 The complete node *node_arrange* definition is:
 
-.. literalinclude:: src/src/main/app-resources/application.xml
+.. literalinclude:: ../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 72-79
@@ -59,7 +59,7 @@ The node_binning node
 
 The node *node_binning* definition is:
 
-.. literalinclude:: src/src/main/app-resources/application.xml
+.. literalinclude:: ../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 80-88
@@ -69,7 +69,7 @@ Workflow
 
 The complete workflow is:
 
-.. literalinclude:: src/src/main/app-resources/application.xml
+.. literalinclude:: ../../app-resources/application.xml
   :language: xml
   :tab-width: 1
   :lines: 63-89
