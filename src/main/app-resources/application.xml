@@ -18,7 +18,16 @@
     <jobTemplate id="arrange">
       <streamingExecutable>/application/arrange/run</streamingExecutable>
       <defaultParameters>
-        <parameter id="period">day</parameter>
+        <parameter id="period" title="Breaks" abstract="Defines the breaks for the composites" scope="runtime" maxOccurs="1">
+<options>
+<option>day</option>
+<option>week</option>
+<option>month</option>
+<option>quarter</option>
+<option>year</option>
+<default>day></default>
+</options>
+</parameter>
       </defaultParameters>
       <defaultJobconf>
         <property id="ciop.job.max.tasks">1</property>
