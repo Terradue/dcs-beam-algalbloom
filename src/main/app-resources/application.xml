@@ -4,11 +4,11 @@
   
     <!-- BEAM BandMaths operator job template  -->
     <jobTemplate id="expression">
-      <streamingExecutable>/application/expression/run.sh</streamingExecutable>
+      <streamingExecutable>/application/expression/run</streamingExecutable>
       <defaultParameters>						
         <parameter id="expression">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-        <parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-01</parameter>
-        <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-03</parameter>
+        <parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start" maxOccurs="1">2012-04-03</parameter>
+        <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end" maxOccurs="1">2012-04-04</parameter>
       </defaultParameters>
       <defaultJobconf>
         <property id="mapred.task.timeout">9900000000000</property>
@@ -16,7 +16,7 @@
     </jobTemplate>
 	
     <jobTemplate id="arrange">
-      <streamingExecutable>/application/arrange/run.R</streamingExecutable>
+      <streamingExecutable>/application/arrange/run</streamingExecutable>
       <defaultParameters>
         <parameter id="period">day</parameter>
       </defaultParameters>
@@ -27,11 +27,11 @@
 		
     <!-- BEAM Level 3 processor job template  -->
     <jobTemplate id="binning">
-      <streamingExecutable>/application/binning/run.sh</streamingExecutable>
+      <streamingExecutable>/application/binning/run</streamingExecutable>
       <defaultParameters>						
         <parameter id="bandname">out</parameter>
         <parameter id="bitmask">l1_flags.INVALID?0:radiance_13>15?0:100+radiance_9-(radiance_8+(radiance_10-radiance_8)*27.524/72.570)</parameter>
-        <parameter id="bbox" title="Bounding Box" abstract="The bounding box parameter" scope="test" target="geo:box">-180,-90,180,90</parameter>
+        <parameter id="bbox" title="Bounding Box" abstract="The bounding box parameter" scope="test" target="geo:box" maxOccurs="1">-180,-90,180,90</parameter>
         <parameter id="algorithm">MIN_MAX</parameter>
         <parameter id="outputname">binned</parameter>
         <parameter id="palette">#MCI_Palette
@@ -65,7 +65,7 @@ sample8=101.80430145795337</parameter>
     <node id="node_expression">				
       <job id="expression"></job>			
       <sources>
-        <source refid="cas:series">http://catalogue.terradue.int/catalogue/search/MER_RR__1P/description</source>
+        <source refid="cas:series">https://data2.terradue.com/eop/eo-samples/series/mer_rr__1p/description</source>
       </sources>
       <parameters/>					
     </node>

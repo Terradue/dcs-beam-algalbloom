@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# source the ciop functions (e.g. ciop-log)
+source ${ciop_job_include}
+
+source ${_CIOP_APPLICATION_PATH}/binning/lib/functions.sh
+
+set_env
+
+while read list
+do 
+  main ${list} || exit $?
+done
+exit 0
+

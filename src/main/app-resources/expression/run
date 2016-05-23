@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# source the ciop functions (e.g. ciop-log)
+source ${ciop_job_include}
+
+source ${_CIOP_APPLICATION_PATH}/expression/lib/functions.sh
+
+set_env
+
+while read inputfile
+do
+  main ${inputfile} || exit $? 
+done
+
+exit 0
+
