@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.terradue.ciop.app</groupId>
-	<artifactId>beam-java-app</artifactId>
+	<artifactId>dcs-beam-algalbloom</artifactId>
 	<packaging>rpm</packaging>
-	<description>BEAM Java FLH Processing</description>
+	<description>BEAM algal bloom detection Developer Cloud Sandbox</description>
 	<version>0.1</version>
 
 	<scm>
