@@ -65,7 +65,7 @@ mvn install
 Run this command in a shell:
 
 ```bash
-ciop-simwf
+ciop-run
 ```
 
 Or invoke the Web Processing Service via the Sandbox dashboard providing a start/stop date in the format YYYY/MM/DD (e.g. 2012-04-01 and 2012-04-03).
