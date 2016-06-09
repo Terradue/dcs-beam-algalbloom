@@ -41,7 +41,7 @@ Select java 1.7 out of the menu options by typing the correct number (here it's 
 
 * Install R required packages
 
-Install R and associated packages:
+Run these commands in the Developer Cloud Sandbox shell:
 
 ```bash
 sudo yum install -y miniconda-3.8.3
