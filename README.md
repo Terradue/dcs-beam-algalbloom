@@ -41,16 +41,14 @@ Select java 1.7 out of the menu options by typing the correct number (here it's 
 
 * Install R required packages
 
-Install R and associated packages with the platform rciop RPM:
+Install R and associated packages:
 
 ```bash
-sudo yum install rciop
-```
-
-Install ff package in an R console:
-
-```coffee
-install.packages("ff")
+sudo yum install -y miniconda-3.8.3
+export PATH=/opt/anaconda/bin/:$PATH
+sudo conda install -y -c r r-essentials
+sudo conda install -y -c r -c terradue r-rciop
+sudo conda install -y -c r -c terradue r-ff
 ```
 
 * Install this application
