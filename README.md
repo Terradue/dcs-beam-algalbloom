@@ -41,16 +41,14 @@ Select java 1.7 out of the menu options by typing the correct number (here it's 
 
 * Install R required packages
 
-Install R and associated packages with the platform rciop RPM:
+Run these commands in the Developer Cloud Sandbox shell:
 
 ```bash
-sudo yum install rciop
-```
-
-Install ff package in an R console:
-
-```coffee
-install.packages("ff")
+sudo yum install -y miniconda-3.8.3
+export PATH=/opt/anaconda/bin/:$PATH
+sudo conda install -y -c r r-essentials
+sudo conda install -y -c r -c terradue r-rciop
+sudo conda install -y -c r -c terradue r-ff
 ```
 
 * Install this application
@@ -67,7 +65,7 @@ mvn install
 Run this command in a shell:
 
 ```bash
-ciop-simwf
+ciop-run
 ```
 
 Or invoke the Web Processing Service via the Sandbox dashboard providing a start/stop date in the format YYYY/MM/DD (e.g. 2012-04-01 and 2012-04-03).
