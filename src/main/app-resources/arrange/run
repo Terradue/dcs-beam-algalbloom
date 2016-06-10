@@ -1,4 +1,4 @@
-#!/usr/bin/Rscript --vanilla --slave --quiet
+#!/opt/anaconda/bin/Rscript --vanilla --slave --quiet
 
 # import rciop package
 library("rciop")
